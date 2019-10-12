@@ -6,12 +6,12 @@
 /*   By: alidy <alidy@student.le-101.fr>            +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/09 09:46:44 by alidy        #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/09 12:07:40 by alidy       ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/10 12:55:10 by alidy       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 char	*ft_strdup(const char *s1)
 {

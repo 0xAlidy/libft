@@ -6,23 +6,23 @@
 /*   By: alidy <alidy@student.le-101.fr>            +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/08 13:59:54 by alidy        #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/09 15:52:30 by alidy       ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/10 11:01:37 by alidy       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int i;
+	size_t i;
 
 	i = 0;
 	if (n <= 0)
 		return (0);
-	while(s1[i] && i < n - 1)
+	while (s1[i] && i < n - 1)
 	{
-		if(s1[i] != s2[i])
+		if (s1[i] != s2[i])
 			return (s1[i] - s2[i]);
 		i++;
 	}

@@ -6,16 +6,16 @@
 /*   By: alidy <alidy@student.le-101.fr>            +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/08 15:23:46 by alidy        #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/09 16:02:02 by alidy       ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/10 12:55:01 by alidy       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include <strings.h>
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {
-	int		i;
+	size_t	i;
 	char	*str;
 
 	i = 0;

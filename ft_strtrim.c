@@ -6,28 +6,22 @@
 /*   By: alidy <alidy@student.le-101.fr>            +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/09 11:03:38 by alidy        #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/09 17:49:56 by alidy       ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/10 12:07:22 by alidy       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-size_t		ft_strlen(const char *s)
-{
-	size_t		i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
+#include "libft.h"
 
 int		nb_start(char const *s, char const *set)
 {
 	int i;
 	int j;
+	int save;
 
 	i = 0;
 	j = 0;
+	save = 0;
 	while (s[i])
 	{
 		save = i;
@@ -35,20 +29,25 @@ int		nb_start(char const *s, char const *set)
 		{
 			if (s[i] == set[j])
 				i++;
-			j++;
+			else
+				j++;
 		}
 		if (i == save)
 			return (i);
+		j = 0;
 	}
+	return (0);
 }
 
 int		nb_end(char const *s, char const *set, int size)
 {
 	int j;
 	int i;
+	int save;
 
 	j = 0;
-	i = size;
+	i = size - 1;
+	save = 0;
 	while (i >= 0)
 	{
 		save = i;
@@ -56,26 +55,31 @@ int		nb_end(char const *s, char const *set, int size)
 		{
 			if (s[i] == set[j])
 				i--;
-			j++;
+			else
+				j++;
 		}
 		if (i == save)
-			return (size - i);
+			return (size - i - 1);
+		j = 0;
 	}
+	return (0);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int 	s_total;
+	int		s_total;
 	int		start;
 	int		end;
-	char const	*str;
+	char	*str;
+	int		i;
 
 	s_total = ft_strlen(s1);
 	start = nb_start(s1, set);
-	end = nb_end(s1, set, size_total);
-	if((str = malloc((s_total - start - end + 1) * sizeof(char))) == NULL)
+	end = nb_end(s1, set, s_total);
+	i = 0;
+	if ((str = malloc((s_total - start - end + 1) * sizeof(char))) == NULL)
 		return (0);
-	while(start < s_total - end)
+	while (start + i < s_total - end)
 	{
 		str[i] = s1[start + i];
 		i++;

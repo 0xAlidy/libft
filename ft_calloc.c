@@ -6,7 +6,7 @@
 /*   By: alidy <alidy@student.le-101.fr>            +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/09 09:28:07 by alidy        #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/12 09:47:01 by alidy       ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/13 16:50:23 by alidy       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,14 +15,15 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	size_t	*str;
-	int		i;
+	void	*str;
+	size_t	i;
 
-	str = malloc(count * size);
 	i = 0;
+	if ((str = malloc(count * size)) == NULL)
+		return (0);
 	while (i < count)
 	{
-		str[i] = 0;
+		((char *)str)[i] = 0;
 		i++;
 	}
 	return (str);

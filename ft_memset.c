@@ -6,7 +6,7 @@
 /*   By: alidy <alidy@student.le-101.fr>            +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/08 15:17:24 by alidy        #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/10 10:59:48 by alidy       ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/14 01:10:53 by alidy       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -22,7 +22,7 @@ void	*ft_memset(void *b, int c, size_t len)
 	b1 = b;
 	while (i < len)
 	{
-		b1[i] = c;
+		b1[i] = (unsigned char)c;
 		i++;
 	}
 	return (b);

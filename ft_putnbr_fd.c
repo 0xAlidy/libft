@@ -6,7 +6,7 @@
 /*   By: alidy <alidy@student.le-101.fr>            +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/12 11:05:51 by alidy        #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/12 11:10:23 by alidy       ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/13 14:35:20 by alidy       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -27,5 +27,5 @@ void	ft_putnbr_fd(int n, int fd)
 	if (number > 9)
 		ft_putnbr_fd(number / 10, fd);
 	mod = number % 10 + 48;
-	write (fd, &mod, 1);
+	write(fd, &mod, 1);
 }

@@ -6,7 +6,7 @@
 /*   By: alidy <alidy@student.le-101.fr>            +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/08 16:49:28 by alidy        #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/10 12:55:00 by alidy       ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/13 18:41:02 by alidy       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -29,12 +29,10 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 		i++;
 	}
 	i = 0;
-	temp[i] = 0;
-	while (temp[i])
+	while (i < len)
 	{
 		dest[i] = temp[i];
 		i++;
 	}
-	dest[i] = 0;
 	return (dest);
 }

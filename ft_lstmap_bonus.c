@@ -1,40 +1,30 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_atoi.c                                        .::    .:/ .      .::   */
+/*   ft_lstmap_bonus.c                                .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: alidy <alidy@student.le-101.fr>            +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/10/07 14:10:06 by alidy        #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/13 14:31:57 by alidy       ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/12 12:32:48 by alidy        #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/14 00:38:36 by alidy       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *))
 {
-	int i;
-	int neg;
-	int res;
+	t_list		*liste;
+	t_list		*maillon;
 
-	i = 0;
-	neg = 1;
-	res = 0;
-	while ((str[i] > 8 && str[i] < 14) || str[i] == 32)
-		i++;
-	if (str[i] == '+')
-		i++;
-	else if (str[i] == '-')
+	liste = ft_lstnew((*f)(lst->content));
+	maillon = NULL;
+	while (lst != 0)
 	{
-		i++;
-		neg = -1;
+		maillon = ft_lstnew((*f)(lst->content));
+		ft_lstadd_back(&liste, maillon);
+		lst = lst->next;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		res = res * 10 + str[i] - 48;
-		i++;
-	}
-	return (res * neg);
+	return (liste);
 }

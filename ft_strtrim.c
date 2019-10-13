@@ -6,14 +6,14 @@
 /*   By: alidy <alidy@student.le-101.fr>            +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/09 11:03:38 by alidy        #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/10 12:07:22 by alidy       ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/13 22:23:17 by alidy       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		nb_start(char const *s, char const *set)
+static int	nb_start(char const *s, char const *set)
 {
 	int i;
 	int j;
@@ -36,10 +36,10 @@ int		nb_start(char const *s, char const *set)
 			return (i);
 		j = 0;
 	}
-	return (0);
+	return (i);
 }
 
-int		nb_end(char const *s, char const *set, int size)
+static int	nb_end(char const *s, char const *set, int size)
 {
 	int j;
 	int i;
@@ -62,10 +62,10 @@ int		nb_end(char const *s, char const *set, int size)
 			return (size - i - 1);
 		j = 0;
 	}
-	return (0);
+	return (size - i - 1);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+char		*ft_strtrim(char const *s1, char const *set)
 {
 	int		s_total;
 	int		start;
@@ -77,6 +77,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	start = nb_start(s1, set);
 	end = nb_end(s1, set, s_total);
 	i = 0;
+	if (s_total - start - end <= 0)
+		return (0);
 	if ((str = malloc((s_total - start - end + 1) * sizeof(char))) == NULL)
 		return (0);
 	while (start + i < s_total - end)

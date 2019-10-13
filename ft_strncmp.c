@@ -6,7 +6,7 @@
 /*   By: alidy <alidy@student.le-101.fr>            +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/08 13:59:54 by alidy        #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/10 11:01:37 by alidy       ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/13 16:39:40 by alidy       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -23,8 +23,8 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n)
 	while (s1[i] && i < n - 1)
 	{
 		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
+			return ((unsigned char)s1[i] - s2[i]);
 		i++;
 	}
-	return (s1[i] - s2[i]);
+	return ((unsigned char)s1[i] - s2[i]);
 }

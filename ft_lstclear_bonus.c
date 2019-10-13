@@ -1,40 +1,31 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_atoi.c                                        .::    .:/ .      .::   */
+/*   ft_lstclear_bonus.c                              .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: alidy <alidy@student.le-101.fr>            +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/10/07 14:10:06 by alidy        #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/13 14:31:57 by alidy       ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/12 12:21:56 by alidy        #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/13 15:44:41 by alidy       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	int i;
-	int neg;
-	int res;
+	t_list	*maillon;
+	t_list	*temp;
 
-	i = 0;
-	neg = 1;
-	res = 0;
-	while ((str[i] > 8 && str[i] < 14) || str[i] == 32)
-		i++;
-	if (str[i] == '+')
-		i++;
-	else if (str[i] == '-')
+	maillon = *lst;
+	temp = NULL;
+	while (maillon != 0)
 	{
-		i++;
-		neg = -1;
+		temp = maillon->next;
+		(*del)(maillon);
+		free(maillon);
+		maillon = temp;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		res = res * 10 + str[i] - 48;
-		i++;
-	}
-	return (res * neg);
+	lst = 0;
 }

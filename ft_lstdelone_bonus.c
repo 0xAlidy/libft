@@ -1,40 +1,20 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_atoi.c                                        .::    .:/ .      .::   */
+/*   ft_lstdelone_bonus.c                             .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: alidy <alidy@student.le-101.fr>            +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/10/07 14:10:06 by alidy        #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/13 14:31:57 by alidy       ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/12 11:57:00 by alidy        #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/14 00:27:01 by alidy       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	int i;
-	int neg;
-	int res;
-
-	i = 0;
-	neg = 1;
-	res = 0;
-	while ((str[i] > 8 && str[i] < 14) || str[i] == 32)
-		i++;
-	if (str[i] == '+')
-		i++;
-	else if (str[i] == '-')
-	{
-		i++;
-		neg = -1;
-	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		res = res * 10 + str[i] - 48;
-		i++;
-	}
-	return (res * neg);
+	(*del)(lst->content);
+	free(lst);
 }

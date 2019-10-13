@@ -6,32 +6,42 @@
 /*   By: alidy <alidy@student.le-101.fr>            +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/10 13:21:43 by alidy        #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/12 10:11:10 by alidy       ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/13 21:53:30 by alidy       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		nb_words(char const *s, char c)
+static int	nb_words(char const *s, char c)
 {
 	int i;
 	int res;
+	int ok;
 
 	i = 0;
 	res = 0;
+	ok = 0;
 	while (s[i] == c)
 		i++;
 	while (s[i])
 	{
-		if (s[i] == c && s[i + 1])
-			res++;
-		i++;
+		if (s[i] != c)
+			ok = 1;
+		if (s[i] == c)
+		{
+			while (s[i] == c)
+				i++;
+			if (s[i])
+				res++;
+		}
+		else
+			i++;
 	}
-	return (res + 1);
+	return (res + ok);
 }
 
-void	complete_tab(char **tab, char const *s, int nb_w, char c)
+static int	complete_tab(char **tab, char const *s, int nb_w, char c)
 {
 	int i;
 	int j;
@@ -52,13 +62,14 @@ void	complete_tab(char **tab, char const *s, int nb_w, char c)
 		while (s[j] != c && s[j])
 			tab[i][y++] = s[j++];
 		tab[i][y] = 0;
-		if (s[j])
+		while (s[j] == c)
 			j++;
 		y = 0;
 	}
+	return (1);
 }
 
-char	**ft_split(char const *s, char c)
+char		**ft_split(char const *s, char c)
 {
 	char	**tab;
 	int		nb_w;

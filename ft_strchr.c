@@ -6,10 +6,12 @@
 /*   By: alidy <alidy@student.le-101.fr>            +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/08 14:09:51 by alidy        #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/10 10:13:50 by alidy       ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/13 16:18:44 by alidy       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 char		*ft_strchr(const char *s, int c)
 {
@@ -22,5 +24,7 @@ char		*ft_strchr(const char *s, int c)
 			return ((char *)&s[i]);
 		i++;
 	}
+	if (s[i] == c)
+		return ((char *)&s[i]);
 	return (0);
 }

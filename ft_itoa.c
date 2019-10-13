@@ -6,17 +6,19 @@
 /*   By: alidy <alidy@student.le-101.fr>            +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/10 15:10:07 by alidy        #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/12 09:26:03 by alidy       ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/13 15:40:03 by alidy       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		nb_char(int n)
+static	int		nb_char(int n)
 {
 	int res;
 
+	if (n == 0)
+		return (1);
 	if (n < 0)
 	{
 		res = 1;
@@ -32,14 +34,14 @@ int		nb_char(int n)
 	return (res);
 }
 
-int		ft_neg(int n)
+static	int		ft_neg(int n)
 {
 	if (n < 0)
 		return (1);
 	return (0);
 }
 
-char	*ft_itoa(int n)
+char			*ft_itoa(int n)
 {
 	int		nb_c;
 	int		i;

@@ -6,7 +6,7 @@
 /*   By: alidy <alidy@student.le-101.fr>            +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/09 11:03:38 by alidy        #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/13 22:23:17 by alidy       ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/15 14:25:20 by alidy       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -51,7 +51,7 @@ static int	nb_end(char const *s, char const *set, int size)
 	while (i >= 0)
 	{
 		save = i;
-		while (set[j])
+		while (set[j] && i > 0)
 		{
 			if (s[i] == set[j])
 				i--;
@@ -78,7 +78,10 @@ char		*ft_strtrim(char const *s1, char const *set)
 	end = nb_end(s1, set, s_total);
 	i = 0;
 	if (s_total - start - end <= 0)
-		return (0);
+	{
+		str = "";
+		return (str);
+	}
 	if ((str = malloc((s_total - start - end + 1) * sizeof(char))) == NULL)
 		return (0);
 	while (start + i < s_total - end)

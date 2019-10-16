@@ -6,7 +6,7 @@
 /*   By: alidy <alidy@student.le-101.fr>            +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/12 12:32:48 by alidy        #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/14 00:38:36 by alidy       ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/16 18:02:36 by alidy       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,7 +18,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *))
 	t_list		*liste;
 	t_list		*maillon;
 
-	liste = ft_lstnew((*f)(lst->content));
+	liste = NULL;
 	maillon = NULL;
 	while (lst != 0)
 	{

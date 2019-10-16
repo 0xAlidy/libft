@@ -6,7 +6,7 @@
 /*   By: alidy <alidy@student.le-101.fr>            +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/12 11:34:28 by alidy        #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/14 00:02:11 by alidy       ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/15 16:10:19 by alidy       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,5 +16,5 @@
 void	ft_lstadd_front(t_list **alst, t_list *new)
 {
 	new->next = *alst;
-	alst = &new;
+	*alst = new;
 }

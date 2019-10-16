@@ -6,7 +6,7 @@
 /*   By: alidy <alidy@student.le-101.fr>            +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/12 12:21:56 by alidy        #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/13 15:44:41 by alidy       ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/16 16:07:54 by alidy       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -23,9 +23,8 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	while (maillon != 0)
 	{
 		temp = maillon->next;
-		(*del)(maillon);
-		free(maillon);
+		ft_lstdelone(maillon, (*del));
 		maillon = temp;
 	}
-	lst = 0;
+	*lst = 0;
 }

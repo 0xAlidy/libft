@@ -6,7 +6,7 @@
 /*   By: alidy <alidy@student.le-101.fr>            +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/09 10:15:14 by alidy        #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/13 23:06:29 by alidy       ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/15 14:32:55 by alidy       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -20,7 +20,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	size = 0;
 	if (start > ft_strlen(s))
-		return (0);
+	{
+		s1 = "";
+		return (s1);
+	}
 	while (s[start + size] && size < len)
 		size++;
 	if ((s1 = malloc((size + 1) * sizeof(char))) == NULL)

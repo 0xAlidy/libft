@@ -6,7 +6,7 @@
 /*   By: alidy <alidy@student.le-101.fr>            +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/10 09:54:32 by alidy        #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/16 15:53:09 by alidy       ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/18 16:05:53 by alidy       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -63,7 +63,8 @@ void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstdelone(t_list *lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstlast(t_list *lst);
-t_list				*ft_lstmap(t_list *lst, void *(*f)(void *));
+t_list				*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)
+(void *));
 t_list				*ft_lstnew(void *content);
 
 #endif

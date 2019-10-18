@@ -6,7 +6,7 @@
 /*   By: alidy <alidy@student.le-101.fr>            +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/08 18:06:13 by alidy        #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/13 19:55:43 by alidy       ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/18 12:08:38 by alidy       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -26,5 +26,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 			return ((unsigned char *)&str[i]);
 		i++;
 	}
+	if (str[i] == 0 && c == 0)
+		return ((unsigned char *)&str[i]);
 	return (0);
 }

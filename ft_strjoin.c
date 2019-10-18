@@ -6,7 +6,7 @@
 /*   By: alidy <alidy@student.le-101.fr>            +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/09 10:44:31 by alidy        #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/13 22:04:45 by alidy       ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/18 11:58:36 by alidy       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,22 +19,21 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		size_s2;
 	char	*str;
 
-	size_s1 = ft_strlen(s1);
-	size_s2 = ft_strlen(s2);
-	if ((str = malloc((size_s1 + size_s2 + 1) * sizeof(char))) == NULL)
-		return (0);
-	size_s1 = 0;
-	size_s2 = 0;
-	while (s1[size_s1])
+	if (s1 && s2)
 	{
-		str[size_s1] = s1[size_s1];
-		size_s1++;
+		size_s1 = ft_strlen(s1);
+		size_s2 = ft_strlen(s2);
+		if ((str = malloc((size_s1 + size_s2 + 1) * sizeof(char))) == NULL)
+			return (0);
+		size_s1 = -1;
+		size_s2 = -1;
+		while (s1[++size_s1])
+			str[size_s1] = s1[size_s1];
+		while (s2[++size_s2])
+			str[size_s1 + size_s2] = s2[size_s2];
+		str[size_s1 + size_s2] = 0;
 	}
-	while (s2[size_s2])
-	{
-		str[size_s1 + size_s2] = s2[size_s2];
-		size_s2++;
-	}
-	str[size_s1 + size_s2] = 0;
+	else
+		str = 0;
 	return (str);
 }

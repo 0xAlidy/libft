@@ -6,7 +6,7 @@
 /*   By: alidy <alidy@student.le-101.fr>            +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/09 11:03:38 by alidy        #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/15 14:25:20 by alidy       ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/18 14:46:29 by alidy       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -73,22 +73,21 @@ char		*ft_strtrim(char const *s1, char const *set)
 	char	*str;
 	int		i;
 
-	s_total = ft_strlen(s1);
-	start = nb_start(s1, set);
-	end = nb_end(s1, set, s_total);
-	i = 0;
-	if (s_total - start - end <= 0)
+	if (s1)
 	{
-		str = "";
-		return (str);
+		s_total = ft_strlen(s1);
+		start = nb_start(s1, set);
+		end = nb_end(s1, set, s_total);
+		i = -1;
+		if (s_total - start - end <= 0)
+			return (str = "");
+		if ((str = malloc((s_total - start - end + 1) * sizeof(char))) == NULL)
+			return (0);
+		while (start + ++i < s_total - end)
+			str[i] = s1[start + i];
+		str[i] = 0;
 	}
-	if ((str = malloc((s_total - start - end + 1) * sizeof(char))) == NULL)
-		return (0);
-	while (start + i < s_total - end)
-	{
-		str[i] = s1[start + i];
-		i++;
-	}
-	str[i] = 0;
+	else
+		str = 0;
 	return (str);
 }

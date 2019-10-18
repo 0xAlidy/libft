@@ -6,7 +6,7 @@
 /*   By: alidy <alidy@student.le-101.fr>            +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/10 15:10:07 by alidy        #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/13 15:40:03 by alidy       ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/17 17:02:36 by alidy       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -41,6 +41,24 @@ static	int		ft_neg(int n)
 	return (0);
 }
 
+static	char	*ft_int_min(char *s)
+{
+	int		min;
+	int		i;
+
+	min = 147483648;
+	i = 10;
+	s[0] = '-';
+	s[1] = '2';
+	while (i > 1)
+	{
+		s[i] = (min % 10 + 48);
+		min = min / 10;
+		i--;
+	}
+	return (s);
+}
+
 char			*ft_itoa(int n)
 {
 	int		nb_c;
@@ -53,9 +71,9 @@ char			*ft_itoa(int n)
 	neg = ft_neg(n);
 	if ((str = malloc(sizeof(char) * (nb_c + 1))) == NULL)
 		return (0);
-	str[nb_c] = 0;
 	if (n == -2147483648)
-		return ("-2147483648");
+		return (ft_int_min(str));
+	str[nb_c] = 0;
 	if (neg == 1)
 		n = n * -1;
 	while (i >= 0)

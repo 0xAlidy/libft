@@ -6,18 +6,19 @@
 /*   By: alidy <alidy@student.le-101.fr>            +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/07 14:10:06 by alidy        #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/13 14:31:57 by alidy       ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/18 15:42:19 by alidy       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 int		ft_atoi(const char *str)
 {
-	int i;
-	int neg;
-	int res;
+	int		i;
+	int		neg;
+	long	res;
 
 	i = 0;
 	neg = 1;

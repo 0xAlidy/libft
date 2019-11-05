@@ -6,7 +6,7 @@
 /*   By: alidy <alidy@student.le-101.fr>            +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/09 11:03:38 by alidy        #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/18 14:46:29 by alidy       ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/05 15:24:16 by alidy       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,24 +17,18 @@ static int	nb_start(char const *s, char const *set)
 {
 	int i;
 	int j;
-	int save;
 
 	i = 0;
 	j = 0;
-	save = 0;
-	while (s[i])
+	while (set[j])
 	{
-		save = i;
-		while (set[j])
+		if (s[i] == set[j] && s[i])
 		{
-			if (s[i] == set[j])
-				i++;
-			else
-				j++;
+			i++;
+			j = 0;
 		}
-		if (i == save)
-			return (i);
-		j = 0;
+		else
+			j++;
 	}
 	return (i);
 }
@@ -43,24 +37,18 @@ static int	nb_end(char const *s, char const *set, int size)
 {
 	int j;
 	int i;
-	int save;
 
 	j = 0;
 	i = size - 1;
-	save = 0;
-	while (i >= 0)
+	while (set[j])
 	{
-		save = i;
-		while (set[j] && i > 0)
+		if (s[i] == set[j] && i > 0)
 		{
-			if (s[i] == set[j])
-				i--;
-			else
-				j++;
+			i--;
+			j = 0;
 		}
-		if (i == save)
-			return (size - i - 1);
-		j = 0;
+		else
+			j++;
 	}
 	return (size - i - 1);
 }
@@ -73,21 +61,22 @@ char		*ft_strtrim(char const *s1, char const *set)
 	char	*str;
 	int		i;
 
+	i = -1;
+	str = 0;
 	if (s1)
 	{
+		if (!set)
+			return (str = ft_strdup(s1));
 		s_total = ft_strlen(s1);
 		start = nb_start(s1, set);
 		end = nb_end(s1, set, s_total);
-		i = -1;
 		if (s_total - start - end <= 0)
-			return (str = "");
-		if ((str = malloc((s_total - start - end + 1) * sizeof(char))) == NULL)
+			return (str = ft_strdup(""));
+		if (!(str = malloc((s_total - start - end + 1) * sizeof(char))))
 			return (0);
 		while (start + ++i < s_total - end)
 			str[i] = s1[start + i];
 		str[i] = 0;
 	}
-	else
-		str = 0;
 	return (str);
 }

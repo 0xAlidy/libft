@@ -6,7 +6,7 @@
 /*   By: alidy <alidy@student.le-101.fr>            +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/10 13:21:43 by alidy        #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/18 16:43:30 by alidy       ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/29 14:28:02 by alidy       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -69,18 +69,15 @@ static int	complete_tab(char **tab, char const *s, int nb_w, char c)
 	return (1);
 }
 
-static char	**clear_tab(char **tab, int nb_w, int c)
+static char	**clear_tab(char **tab, int nb_w)
 {
 	int i;
 
 	i = 0;
-	if (c == 1)
+	while (i < nb_w && tab[i])
 	{
-		while (i < nb_w)
-		{
-			free(tab[i]);
-			i++;
-		}
+		free(tab[i]);
+		i++;
 	}
 	free(tab);
 	return (tab);
@@ -95,10 +92,10 @@ char		**ft_split(char const *s, char c)
 	{
 		nb_w = nb_words(s, c);
 		if ((tab = malloc(sizeof(char *) * (nb_w + 1))) == NULL)
-			return (clear_tab(tab, nb_w, 0));
+			return (0);
 		tab[nb_w] = 0;
 		if (complete_tab(tab, s, nb_w, c) == 0)
-			return (clear_tab(tab, nb_w, 1));
+			return (clear_tab(tab, nb_w));
 	}
 	else
 		tab = 0;

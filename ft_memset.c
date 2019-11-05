@@ -6,24 +6,21 @@
 /*   By: alidy <alidy@student.le-101.fr>            +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/08 15:17:24 by alidy        #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/18 10:27:23 by alidy       ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/04 09:36:02 by alidy       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 void	*ft_memset(void *b, int c, size_t len)
 {
-	size_t			i;
-	unsigned char	*b1;
+	size_t	i;
 
 	i = 0;
-	b1 = b;
 	while (i < len)
 	{
-		b1[i] = (unsigned char)c;
+		((unsigned char *)b)[i] = c;
 		i++;
 	}
 	return (b);

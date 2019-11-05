@@ -6,13 +6,12 @@
 /*   By: alidy <alidy@student.le-101.fr>            +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/07 14:10:06 by alidy        #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/21 13:18:02 by alidy       ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/04 10:25:02 by alidy       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 int		ft_atoi(const char *str)
 {

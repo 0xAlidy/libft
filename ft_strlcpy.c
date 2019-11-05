@@ -6,7 +6,7 @@
 /*   By: alidy <alidy@student.le-101.fr>            +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/08 11:29:51 by alidy        #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/18 12:07:55 by alidy       ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/04 10:40:16 by alidy       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,6 +19,8 @@ size_t		ft_strlcpy(char *dest, const char *src, size_t size)
 	size_t size_src;
 
 	i = 0;
+	if (!dest)
+		return (0);
 	if (src)
 	{
 		size_src = ft_strlen(src);

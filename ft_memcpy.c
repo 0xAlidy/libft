@@ -6,7 +6,7 @@
 /*   By: alidy <alidy@student.le-101.fr>            +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/08 15:25:31 by alidy        #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/16 22:57:39 by alidy       ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/04 14:35:22 by alidy       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -29,5 +29,5 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 		dest[i] = source[i];
 		i++;
 	}
-	return (dest);
+	return ((void *)dest);
 }

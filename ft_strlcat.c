@@ -6,7 +6,7 @@
 /*   By: alidy <alidy@student.le-101.fr>            +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/10 10:15:51 by alidy        #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/14 01:42:54 by alidy       ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/28 20:05:02 by alidy       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -24,7 +24,7 @@ size_t		ft_strlcat(char *dest, const char *src, size_t size)
 	size_dest = ft_strlen(dest);
 	if (size_dest >= size)
 		return (size_src + size);
-	while (src[i] && (size_dest + i < size - 1))
+	while ((size_dest + i < size - 1) && src[i])
 	{
 		dest[i + size_dest] = src[i];
 		i++;

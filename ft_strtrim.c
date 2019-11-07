@@ -6,12 +6,13 @@
 /*   By: alidy <alidy@student.le-101.fr>            +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/09 11:03:38 by alidy        #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/05 15:24:16 by alidy       ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/07 17:38:12 by alidy       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 static int	nb_start(char const *s, char const *set)
 {
@@ -42,7 +43,7 @@ static int	nb_end(char const *s, char const *set, int size)
 	i = size - 1;
 	while (set[j])
 	{
-		if (s[i] == set[j] && i > 0)
+		if (i > 0 && s[i] == set[j])
 		{
 			i--;
 			j = 0;
@@ -71,7 +72,7 @@ char		*ft_strtrim(char const *s1, char const *set)
 		start = nb_start(s1, set);
 		end = nb_end(s1, set, s_total);
 		if (s_total - start - end <= 0)
-			return (str = ft_strdup(""));
+			return (ft_strdup(""));
 		if (!(str = malloc((s_total - start - end + 1) * sizeof(char))))
 			return (0);
 		while (start + ++i < s_total - end)

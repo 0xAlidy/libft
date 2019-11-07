@@ -6,7 +6,7 @@
 /*   By: alidy <alidy@student.le-101.fr>            +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/08 15:29:09 by alidy        #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/04 14:35:16 by alidy       ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/07 18:17:19 by alidy       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -22,6 +22,8 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 	dest = (unsigned char *)dst;
 	source = (unsigned const char *)src;
 	i = 0;
+	if (!dst && !src)
+		return (0);
 	while (i < n)
 	{
 		dest[i] = source[i];

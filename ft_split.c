@@ -6,7 +6,7 @@
 /*   By: alidy <alidy@student.le-101.fr>            +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/10 13:21:43 by alidy        #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/29 14:28:02 by alidy       ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/11 14:23:26 by alidy       ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -22,7 +22,7 @@ static int	nb_words(char const *s, char c)
 	i = 0;
 	res = 0;
 	ok = 0;
-	while (s[i] == c)
+	while (s[i] == c && s[i])
 		i++;
 	while (s[i])
 	{
@@ -50,7 +50,7 @@ static int	complete_tab(char **tab, char const *s, int nb_w, char c)
 	i = -1;
 	j = 0;
 	y = 0;
-	while (s[j] == c)
+	while (s[j] == c && s[j])
 		j++;
 	while (++i < nb_w)
 	{
@@ -62,7 +62,7 @@ static int	complete_tab(char **tab, char const *s, int nb_w, char c)
 		while (s[j] != c && s[j])
 			tab[i][y++] = s[j++];
 		tab[i][y] = 0;
-		while (s[j] == c)
+		while (s[j] == c && s[j])
 			j++;
 		y = 0;
 	}
